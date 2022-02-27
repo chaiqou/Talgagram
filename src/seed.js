@@ -6,18 +6,18 @@ export function seedDatabase(firebase) {
   const users = [
     {
       userId: "suYEmtPpkCYGRuhwd4lAYCfW9C73",
-      username: "karl",
-      fullName: "Karl Hadwen",
-      emailAddress: "karlhadwen@gmail.com",
+      username: "Nikoloz",
+      fullName: "Nikoloz Lomtadze",
+      emailAddress: "lomtadzenikusha@gmail.com",
       following: ["2"],
       followers: ["2", "3", "4"],
       dateCreated: Date.now(),
     },
     {
       userId: "2",
-      username: "raphael",
-      fullName: "Raffaello Sanzio da Urbino",
-      emailAddress: "raphael@sanzio.com",
+      username: "Mariam",
+      fullName: "Mariam Lomtadze",
+      emailAddress: "mariam@sanzio.com",
       following: [],
       followers: ["suYEmtPpkCYGRuhwd4lAYCfW9C73"],
       dateCreated: Date.now(),
@@ -55,7 +55,7 @@ export function seedDatabase(firebase) {
       .add({
         photoId: i,
         userId: "2",
-        imageSrc: `/images/users/raphael/${i}.jpg`,
+        imageSrc: `/images/users/nikoloz/${i}.jpg`,
         caption: "Saint George and the Dragon",
         likes: [],
         comments: [

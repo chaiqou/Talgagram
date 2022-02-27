@@ -1,3 +1,4 @@
+import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
@@ -19,7 +20,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex justify-start items-center flex-col h-screen">
+    <div className="flex justify-start shadow-none items-center flex-col h-screen">
       <div className="relative w-full h-full">
         <video
           src={LoginVideo}
@@ -30,9 +31,41 @@ const Login = () => {
           autoPlay
           className="w-full h-full object-cover"
         />
-        <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-indigo">
-          <div className="shadow-2xl">
-            <button>Login</button>
+        <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
+          <div>
+            {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
+            <form onSubmit={handleLogin} method="POST">
+              <input
+                aria-label="Enter your email addres"
+                placeholder="Email"
+                type="text"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+                className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-cyan-900 
+                overflow-hidden rounded-lg mb-2 font-bold"
+              />
+              <input
+                aria-label="Enter your password"
+                placeholder="Password"
+                type="password"
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
+                className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-cyan-900
+                overflow-hidden rounded-lg mb-2 font-bold"
+              />
+              <button
+                type="submit"
+                disabled={isInvalid}
+                className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                ${isInvalid && "cursor-not-allowd opacity-50"}
+                
+                `}
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>
