@@ -1,4 +1,3 @@
-import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
@@ -43,7 +42,7 @@ const Login = () => {
                 required
                 onChange={(e) => setEmail(e.target.value)}
                 className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-cyan-900 
-                overflow-hidden rounded-lg mb-2 font-bold"
+                overflow-hidden  mb-2 font-bold"
               />
               <input
                 aria-label="Enter your password"
@@ -53,17 +52,17 @@ const Login = () => {
                 required
                 onChange={(e) => setPassword(e.target.value)}
                 className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-cyan-900
-                overflow-hidden rounded-lg mb-2 font-bold"
+                overflow-hidden  mb-2 font-bold"
               />
               <button
                 type="submit"
                 disabled={isInvalid}
-                className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
-                ${isInvalid && "cursor-not-allowd opacity-50"}
+                className={`text-white bg-blue-700 hover:bg-blue-800 w-full focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+                ${isInvalid && "cursor-not-allowed opacity-50"}
                 
                 `}
               >
-                Submit
+                Log In
               </button>
             </form>
           </div>
