@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
 import SignupVideo from "../images/signup.mp4";
+import { doesUsernameExist } from "../services/firebase";
 import * as ROUTES from "../constants/routes";
 
 const Signup = () => {
@@ -20,6 +21,34 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    const usernameExists = doesUsernameExist(username);
+    if (usernameExists) {
+      try {
+        const createdUserResult = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password);
+
+        await createdUserResult.user.updateProfile({
+          displayName: username,
+        });
+
+        await firebase.firestore().collection("users").add({
+          userId: createdUserResult.user.uid,
+          username: username.toLowerCase(),
+          fullname,
+          email: email.toLowerCase(),
+          following: [],
+          dateCreated: Date.now(),
+        });
+
+        history.push(ROUTES.DASHBOARD);
+      } catch (error) {
+        setEmail("");
+        setPassword("");
+        setFullname("");
+        setUsername("");
+      }
+    }
   };
 
   useEffect(() => {
