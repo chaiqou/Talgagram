@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
 import LoginVideo from "../images/background.mp4";
@@ -38,6 +39,7 @@ const Login = () => {
                 aria-label="Enter your email addres"
                 placeholder="Email"
                 type="text"
+                autoComplete="on"
                 value={email}
                 required
                 onChange={(e) => setEmail(e.target.value)}
@@ -48,6 +50,7 @@ const Login = () => {
                 aria-label="Enter your password"
                 placeholder="Password"
                 type="password"
+                autoComplete="on"
                 value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)}
@@ -65,6 +68,9 @@ const Login = () => {
                 Log In
               </button>
             </form>
+          </div>
+          <div className="flex flex-col justify-center items-center  rounded-xl text-white bg-blue-700 hover:bg-blue-800 p-3 cursor-pointer ">
+            <Link to="/signup">Don't have an account?</Link>
           </div>
         </div>
       </div>
