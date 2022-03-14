@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
 import LoginVideo from "../images/background.mp4";
+import * as ROUTES from "../constants/routes";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,20 @@ const Login = () => {
 
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
-  const handleLogin = () => {};
+
+  // handle sign in
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      history.push(ROUTES.DASHBOARD);
+    } catch (error) {
+      setEmail("");
+      setPassword("");
+      setError(error.message);
+    }
+  };
 
   useEffect(() => {
     document.title = "Login - Talgagram";
@@ -69,7 +83,7 @@ const Login = () => {
               </button>
             </form>
           </div>
-          <div className="flex flex-col justify-center items-center  rounded-xl text-white bg-blue-700 hover:bg-blue-800 p-3 cursor-pointer ">
+          <div className="flex flex-col justify-center items-center   text-white bg-blue-700 hover:bg-blue-800 p-3 cursor-pointer ">
             <Link to="/signup">Don't have an account?</Link>
           </div>
         </div>

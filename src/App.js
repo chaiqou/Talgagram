@@ -2,11 +2,11 @@ import { Route, Link, Switch } from "react-router-dom";
 import React, { Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
-import Signup from "./pages/Signup";
 
 // lazy loading for splitting bundle
 
 const Login = React.lazy(() => import("./pages/Login"));
+const Signup = React.lazy(() => import("./pages/Signup"));
 
 const App = () => {
   return (
