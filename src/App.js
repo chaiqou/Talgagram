@@ -8,6 +8,7 @@ import * as ROUTES from "./constants/routes";
 const Login = React.lazy(() => import("./pages/Login"));
 const Signup = React.lazy(() => import("./pages/Signup"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
+const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Switch>
           <Route path={ROUTES.LOGIN} component={Login} />
           <Route path={ROUTES.SIGN_UP} component={Signup} />
+          <Route path={ROUTES.DASHBOARD} component={Dashboard} />
           <Route component={NotFound} />
         </Switch>
       </Suspense>
