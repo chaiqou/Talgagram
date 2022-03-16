@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import FirebaseContext from "../context/firebase";
 import SignupVideo from "../images/signup.mp4";
@@ -15,6 +14,7 @@ const Signup = () => {
   const [fullname, setFullname] = useState("");
   const isInvalid =
     password === "" || email === "" || username === "" || fullname === "";
+
   const history = useHistory();
 
   // handle sign Up
