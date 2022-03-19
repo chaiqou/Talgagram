@@ -17,8 +17,6 @@ const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const App = () => {
   const { user } = useAuthListener();
 
-  console.log(user);
-
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
