@@ -4,6 +4,7 @@ import UserContext from "../context/user";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 import { FcHome } from "react-icons/fc";
+import Logo from "../images/logo.png";
 import { MdExitToApp } from "react-icons/md";
 
 const Header = () => {
@@ -17,7 +18,7 @@ const Header = () => {
           <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
             <h1 className="flex justify-center w-full">
               <Link to={ROUTES.DASHBOARD}>
-                <FcHome className="w-full h-8 " />
+                <img src={Logo} className="w-14 h-14" />
               </Link>
             </h1>
           </div>
@@ -36,10 +37,14 @@ const Header = () => {
             ) : (
               <>
                 <Link to={ROUTES.LOGIN}>
-                  <button>Log In</button>
+                  <button className="bg-blue-900 font-bold text-sm rounded text-white w-20 h-8">
+                    Log In
+                  </button>
                 </Link>
                 <Link to={ROUTES.SIGN_UP}>
-                  <button>SIgn Up</button>
+                  <button className=" font-bold text-sm rounded text-blue-900 w-20 h-8">
+                    Sign Up
+                  </button>
                 </Link>
               </>
             )}
