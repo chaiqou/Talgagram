@@ -28,4 +28,6 @@ const User = ({ username, fullname }) => {
   );
 };
 
-export default User;
+export default React.memo(User);
+
+User.whyDidYouRender = true;
