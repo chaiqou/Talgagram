@@ -8,8 +8,6 @@ const Sidebar = () => {
     user: { fullname, username, userId },
   } = UseUser();
 
-  console.log(fullname, username, userId);
-
   return (
     <div className="p-4">
       <User username={username} fullname={fullname} />
@@ -18,4 +16,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

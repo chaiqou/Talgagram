@@ -9,7 +9,7 @@ const UseUser = () => {
     // am funqciit gvinda mivigot user data firebasedan user idze dayrdnobit
     async function getUserObjectById() {
       const [response] = await getUserByUserId(user.uid);
-      console.log(response);
+
       setActiveUser(response);
     }
     if (user?.uid) {

@@ -5,7 +5,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 import DefaultAvatar from "../../images/avatars/default.png";
 
 const User = ({ username, fullname }) => {
-  console.log(username, fullname);
   return !username || !fullname ? (
     <Skeleton height={61} count={1} />
   ) : (
